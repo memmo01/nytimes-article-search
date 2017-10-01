@@ -45,11 +45,23 @@
 
         </div>
         <div id="search-form">
-            <input type="text" value="search term" id="search-term">
+            
+            <label for="search-term">Search for article containing</label>
             <br>
-            <input type="text" value="start date yyyymmdd" id="start-date">
+            <input type="text" name="thing" id="search-term">
+
             <br>
-            <input type="text" value="end date yyyymmdd" id="end-date">
+
+            <label for="start-date">Start Date (YYYYMMDD)</label>
+            <br>
+            <input type="text"  id="start-date">
+            
+            <br>
+            
+            <label for="end-date">End Date (YYYMMDD)</label>
+            <br>
+            <input type="text" id="end-date">
+            <br>
             <br>
             <button id="submit">submit</button>
         </div>
