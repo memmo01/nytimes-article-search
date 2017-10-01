@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title> </title>
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
 </head>
 <style>
     .container {
@@ -21,18 +22,42 @@
         margin-top: 10px;
         height: 30px;
         width: 600px;
+        
     }
     
     .books {
         display: inline-grid;
+        border-top:2px solid black;
     }
     
     .title {
         height: 20%;
-        background-color: gray;
+    
         font-size: 40px;
         text-align: center;
         line-height: 100px;
+        border-top:1px solid black;
+        border-bottom:2px solid black;
+        font-family: 'Poiret One', cursive;
+    }
+    #submit
+    {
+        margin-bottom:20px;
+    }
+    .clickHere
+    {
+        margin-top:20px;
+        font-size: 15px;
+        margin-bottom: 10px;
+        background-color: white;
+        border-bottom:2px solid black;
+        border-top:1px solid black;
+        border-left: 4px solid black;
+        border-right:4px solid black;
+    }
+    .clickHere:hover
+    {
+        background-color: #EFEBD9;
     }
 </style>
 
@@ -41,7 +66,7 @@
 
         <div class="title">
 
-            NYTimes Article Search
+            The New York Times Article Search
 
         </div>
         <div id="search-form">
@@ -87,7 +112,7 @@
                 'q': search,
                 "begin_date": start,
                 "end_date": end,
-                "page": 1
+                "page": "123"
             });
 
             $.ajax({
