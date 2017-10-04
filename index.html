@@ -5,61 +5,10 @@
     <meta charset="UTF-8">
     <title> </title>
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One|Roboto" rel="stylesheet">
+      <link rel="stylesheet" href="style.css">
 </head>
-<style>
-    .container {
-        width: 80%;
-        height: 500px;
-        margin-left: 10%;
-    }
-    
-    #search-form {
-        margin: 30px 0 0 27%;
-    }
-    
-    #search-form input {
-        margin-top: 10px;
-        height: 30px;
-        width: 600px;
-        
-    }
-    
-    .books {
-        display: inline-grid;
-        border-top:2px solid black;
-    }
-    
-    .title {
-        height: 20%;
-    
-        font-size: 40px;
-        text-align: center;
-        line-height: 100px;
-        border-top:1px solid black;
-        border-bottom:2px solid black;
-        font-family: 'Poiret One', cursive;
-    }
-    #submit
-    {
-        margin-bottom:20px;
-    }
-    .clickHere
-    {
-        margin-top:20px;
-        font-size: 15px;
-        margin-bottom: 10px;
-        background-color: white;
-        border-bottom:2px solid black;
-        border-top:1px solid black;
-        border-left: 4px solid black;
-        border-right:4px solid black;
-    }
-    .clickHere:hover
-    {
-        background-color: #EFEBD9;
-    }
-</style>
+
 
 <body>
     <div class="container">
@@ -73,7 +22,7 @@
             
             <label for="search-term">Search for article containing</label>
             <br>
-            <input type="text" name="thing" id="search-term">
+            <input type="text" id="search-term">
 
             <br>
 
@@ -95,56 +44,8 @@
 
     </div>
 
-    <script type="text/javascript">
-        $("#submit").on("click", function() {
-            var search = $("#search-term").val().trim();
-            var start = $("#start-date").val().trim();
-            var end = $("#end-date").val().trim();
-
-            $("#search-term").val("")
-            $("#start-date").val("")
-            $("#end-date").val("")
-            $(".books").empty();
-
-            var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
-            url += '?' + $.param({
-                'api-key': "9c50663a3f8a41f0aa37b27c629a17aa",
-                'q': search,
-                "begin_date": start,
-                "end_date": end,
-                "page": "123"
-            });
-
-            $.ajax({
-                url: url,
-                method: 'GET',
-            }).done(function(result) {
-
-                for (i = 0; i < result.response.docs.length; i++) {
-                    var x = ("<p>") + result.response.docs[i].snippet + ("<p>");
-                    var y = result.response.docs[i].web_url;
-
-                    var button = $("<button>");
-
-                    button.attr("data-let", y);
-                    button.addClass("clickHere");
-
-                    var p = $(button).append(x);
-                    $(".books").append(p);
-
-                    console.log(result);
-                }
-
-                $(".clickHere").on("click", function() {
-
-                    window.open($(this).data("let"));
-                })
-            }).fail(function(err) {
-                throw err;
-            })
-
-        });
-    </script>
+    <script src="javascript.js">
+       </script>
 
 </body>
 
