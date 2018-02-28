@@ -12,10 +12,10 @@ the user can select the article and it will direct them to that specific article
 
 Technologies used:
 
-javascript
-jquery
-html
-css
+javascript, 
+jquery, 
+html, 
+css, 
 New York Times API
 
 Author
